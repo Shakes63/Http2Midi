@@ -6,7 +6,9 @@ plugins {
 
 group = 'com.mediajitters'
 version = '0.0.1-SNAPSHOT'
+
 sourceCompatibility = '19'
+targetCompatibility = '19'
 
 repositories {
 	mavenCentral()
@@ -29,4 +31,16 @@ dependencyManagement {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+jar {
+	manifest {
+		attributes 'Main-Class': 'HttpToMidi'
+	}
+	from {
+		configurations.compile.collect {
+			it.isDirectory()? it: zipTree(it)
+		}
+	}
+	exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA'
 }
