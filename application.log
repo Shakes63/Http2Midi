@@ -1,0 +1,411 @@
+2023-02-21 22:57:15,217 INFO c.e.p.c.HttpToMidi [main] Starting HttpToMidi using Java 17.0.5 with PID 2396 (C:\Users\jacob\Documents\codeprojects\Java\photoz-clone\target\classes started by jacob in C:\Users\jacob\Documents\codeprojects\Java\photoz-clone)
+2023-02-21 22:57:15,225 INFO c.e.p.c.HttpToMidi [main] No active profile set, falling back to 1 default profile: "default"
+2023-02-21 22:57:16,075 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-02-21 22:57:16,103 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 22 ms. Found 0 JDBC repository interfaces.
+2023-02-21 22:57:16,674 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2023-02-21 22:57:16,682 INFO o.a.c.h.Http11NioProtocol [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-02-21 22:57:16,683 INFO o.a.c.c.StandardService [main] Starting service [Tomcat]
+2023-02-21 22:57:16,683 INFO o.a.c.c.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-02-21 22:57:16,765 INFO o.a.c.c.C.[.[.[/] [main] Initializing Spring embedded WebApplicationContext
+2023-02-21 22:57:16,767 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1493 ms
+2023-02-21 22:57:17,839 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2023-02-21 22:57:18,009 INFO c.z.h.p.HikariPool [main] HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:cbc91dea-2833-42c9-9e64-cd59799b057a user=SA
+2023-02-21 22:57:18,010 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-02-21 22:57:18,207 INFO o.s.b.a.e.w.EndpointLinksResolver [main] Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-02-21 22:57:18,367 INFO o.a.c.h.Http11NioProtocol [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-02-21 22:57:18,424 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-21 22:57:18,443 INFO c.e.p.c.HttpToMidi [main] Started HttpToMidi in 3.554 seconds (process running for 4.021)
+2023-02-21 22:57:18,454 INFO c.e.p.c.HttpToMidi [main] [32m
+
+There are 4 different commands that you can send to this web server. 
+There is MIDI Note On, MIDI Note Off, MIDI CC Message, and List MIDI Devices. 
+
+In order to sent a Note On you will need to provide these parameters to /midi/noteon:
+deviceName: Name of the device you are wanting to send the message to in a string format exactly like you see when running the list devices command.
+channel: Number from 0 - 15 indicating the channel number you want to connect to.
+note: Number from 0 - 128 corresponding to the different midi notes.
+velocity: Number from 0 - 128 indicating the velocity.
+Example: http://localhost:8080/midi/noteon?deviceName=Propresenter&channel=0&note=52&velocity=128
+
+In order to sent a Note Off you will need to provide these parameters to /midi/noteoff:
+deviceName: Name of the device you are wanting to send the message to in a string format exactly like you see when running the list devices command.
+channel: Number from 0 - 15 indicating the channel number you want to connect to.
+note: Number from 0 - 128 corresponding to the different midi notes.
+Example: http://localhost:8080/midi/noteoff?deviceName=Propresenter&channel=0&note=52
+
+In order to sent a CC Message you will need to provide these parameters to /midi/cc:
+deviceName: Name of the device you are wanting to send the message to in a string format exactly like you see when running the list devices command.
+channel: Number from 0 - 15 indicating the channel number you want to connect to.
+ccNumber: Number from 0 - 128 corresponding to the different midi notes.
+value: Number from 0 - 128 corresponding to the different midi notes.
+Example: http://localhost:8080/midi/cc?deviceName=Propresenter&channel=0&ccNumber=15&value=33
+
+In order to list out the available midi devices you will need to send a request to /midi/list
+Example: http://localhost:8080/midi/list
+[32m
+2023-02-21 22:57:18,502 INFO c.e.p.c.MidiController [main] 
+Available MIDI devices:
+2023-02-21 22:57:18,503 INFO c.e.p.c.MidiController [main] [32m- Gervill[32m
+2023-02-21 22:57:18,503 INFO c.e.p.c.MidiController [main] [32m- Real Time Sequencer[32m
+2023-02-21 22:57:18,503 INFO c.e.p.c.MidiController [main] [32m- Microsoft MIDI Mapper[32m
+2023-02-21 22:57:18,504 INFO c.e.p.c.MidiController [main] [32m- Microsoft GS Wavetable Synth[32m
+2023-02-21 22:57:18,504 INFO c.e.p.c.MidiController [main] [32m- SHAKES-DESKTOP[32m
+2023-02-21 22:57:18,504 INFO c.e.p.c.MidiController [main] [32m- SHAKES-DESKTOP[32m
+2023-02-21 23:02:29,638 INFO c.e.p.c.HttpToMidi [main] Starting HttpToMidi using Java 17.0.5 with PID 10288 (C:\Users\jacob\Documents\codeprojects\Java\photoz-clone\target\classes started by jacob in C:\Users\jacob\Documents\codeprojects\Java\photoz-clone)
+2023-02-21 23:02:29,646 INFO c.e.p.c.HttpToMidi [main] No active profile set, falling back to 1 default profile: "default"
+2023-02-21 23:02:30,487 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-02-21 23:02:30,509 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 12 ms. Found 0 JDBC repository interfaces.
+2023-02-21 23:02:31,076 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2023-02-21 23:02:31,085 INFO o.a.c.h.Http11NioProtocol [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-02-21 23:02:31,086 INFO o.a.c.c.StandardService [main] Starting service [Tomcat]
+2023-02-21 23:02:31,087 INFO o.a.c.c.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-02-21 23:02:31,183 INFO o.a.c.c.C.[.[.[/] [main] Initializing Spring embedded WebApplicationContext
+2023-02-21 23:02:31,185 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1492 ms
+2023-02-21 23:02:32,149 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2023-02-21 23:02:32,297 INFO c.z.h.p.HikariPool [main] HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:59846b41-98b1-4889-87d9-aa892423f669 user=SA
+2023-02-21 23:02:32,299 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-02-21 23:02:32,440 INFO o.s.b.a.e.w.EndpointLinksResolver [main] Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-02-21 23:02:32,557 INFO o.a.c.h.Http11NioProtocol [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-02-21 23:02:32,588 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-21 23:02:32,607 INFO c.e.p.c.HttpToMidi [main] Started HttpToMidi in 3.285 seconds (process running for 3.737)
+2023-02-21 23:02:32,616 INFO c.e.p.c.HttpToMidi [main] [32m
+
+There are 4 different commands that you can send to this web server. 
+There is MIDI Note On, MIDI Note Off, MIDI CC Message, and List MIDI Devices. 
+
+In order to sent a Note On you will need to provide these parameters to /midi/noteon:
+deviceName: Name of the device you are wanting to send the message to in a string format exactly like you see when running the list devices command.
+channel: Number from 0 - 15 indicating the channel number you want to connect to.
+note: Number from 0 - 128 corresponding to the different midi notes.
+velocity: Number from 0 - 128 indicating the velocity.
+Example: http://localhost:8080/midi/noteon?deviceName=Propresenter&channel=0&note=52&velocity=128
+
+In order to sent a Note Off you will need to provide these parameters to /midi/noteoff:
+deviceName: Name of the device you are wanting to send the message to in a string format exactly like you see when running the list devices command.
+channel: Number from 0 - 15 indicating the channel number you want to connect to.
+note: Number from 0 - 128 corresponding to the different midi notes.
+Example: http://localhost:8080/midi/noteoff?deviceName=Propresenter&channel=0&note=52
+
+In order to sent a CC Message you will need to provide these parameters to /midi/cc:
+deviceName: Name of the device you are wanting to send the message to in a string format exactly like you see when running the list devices command.
+channel: Number from 0 - 15 indicating the channel number you want to connect to.
+ccNumber: Number from 0 - 128 corresponding to the different midi notes.
+value: Number from 0 - 128 corresponding to the different midi notes.
+Example: http://localhost:8080/midi/cc?deviceName=Propresenter&channel=0&ccNumber=15&value=33
+
+In order to list out the available midi devices you will need to send a request to /midi/list
+Example: http://localhost:8080/midi/list
+[32m
+2023-02-21 23:02:32,661 INFO c.e.p.c.MidiController [main] 
+Available MIDI devices:
+2023-02-21 23:02:32,662 INFO c.e.p.c.MidiController [main] [32m- Gervill[32m
+2023-02-21 23:02:32,662 INFO c.e.p.c.MidiController [main] [32m- Real Time Sequencer[32m
+2023-02-21 23:02:32,662 INFO c.e.p.c.MidiController [main] [32m- Microsoft MIDI Mapper[32m
+2023-02-21 23:02:32,662 INFO c.e.p.c.MidiController [main] [32m- Microsoft GS Wavetable Synth[32m
+2023-02-21 23:02:32,663 INFO c.e.p.c.MidiController [main] [32m- SHAKES-DESKTOP[32m
+2023-02-21 23:02:32,663 INFO c.e.p.c.MidiController [main] [32m- SHAKES-DESKTOP[32m
+2023-02-21 23:03:00,499 INFO c.e.p.c.HttpToMidi [main] Starting HttpToMidi using Java 17.0.5 with PID 22960 (C:\Users\jacob\Documents\codeprojects\Java\photoz-clone\target\classes started by jacob in C:\Users\jacob\Documents\codeprojects\Java\photoz-clone)
+2023-02-21 23:03:00,504 INFO c.e.p.c.HttpToMidi [main] No active profile set, falling back to 1 default profile: "default"
+2023-02-21 23:03:01,377 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-02-21 23:03:01,406 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 21 ms. Found 0 JDBC repository interfaces.
+2023-02-21 23:03:01,971 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2023-02-21 23:03:01,980 INFO o.a.c.h.Http11NioProtocol [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-02-21 23:03:01,981 INFO o.a.c.c.StandardService [main] Starting service [Tomcat]
+2023-02-21 23:03:01,981 INFO o.a.c.c.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-02-21 23:03:02,070 INFO o.a.c.c.C.[.[.[/] [main] Initializing Spring embedded WebApplicationContext
+2023-02-21 23:03:02,071 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1521 ms
+2023-02-21 23:03:03,096 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2023-02-21 23:03:03,270 INFO c.z.h.p.HikariPool [main] HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:f020eb5d-a260-4b24-90ae-64c090ebe117 user=SA
+2023-02-21 23:03:03,272 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-02-21 23:03:03,406 INFO o.s.b.a.e.w.EndpointLinksResolver [main] Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-02-21 23:03:03,534 INFO o.a.c.h.Http11NioProtocol [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-02-21 23:03:03,581 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-21 23:03:03,606 INFO c.e.p.c.HttpToMidi [main] Started HttpToMidi in 3.432 seconds (process running for 3.864)
+2023-02-21 23:03:03,629 INFO c.e.p.c.HttpToMidi [main] [32m
+
+There are 4 different commands that you can send to this web server. 
+There is MIDI Note On, MIDI Note Off, MIDI CC Message, and List MIDI Devices. 
+
+In order to sent a Note On you will need to provide these parameters to /midi/noteon:
+deviceName: Name of the device you are wanting to send the message to in a string format exactly like you see when running the list devices command.
+channel: Number from 0 - 15 indicating the channel number you want to connect to.
+note: Number from 0 - 128 corresponding to the different midi notes.
+velocity: Number from 0 - 128 indicating the velocity.
+Example: http://localhost:8080/midi/noteon?deviceName=Propresenter&channel=0&note=52&velocity=128
+
+In order to sent a Note Off you will need to provide these parameters to /midi/noteoff:
+deviceName: Name of the device you are wanting to send the message to in a string format exactly like you see when running the list devices command.
+channel: Number from 0 - 15 indicating the channel number you want to connect to.
+note: Number from 0 - 128 corresponding to the different midi notes.
+Example: http://localhost:8080/midi/noteoff?deviceName=Propresenter&channel=0&note=52
+
+In order to sent a CC Message you will need to provide these parameters to /midi/cc:
+deviceName: Name of the device you are wanting to send the message to in a string format exactly like you see when running the list devices command.
+channel: Number from 0 - 15 indicating the channel number you want to connect to.
+ccNumber: Number from 0 - 128 corresponding to the different midi notes.
+value: Number from 0 - 128 corresponding to the different midi notes.
+Example: http://localhost:8080/midi/cc?deviceName=Propresenter&channel=0&ccNumber=15&value=33
+
+In order to list out the available midi devices you will need to send a request to /midi/list
+Example: http://localhost:8080/midi/list
+[32m
+2023-02-21 23:03:03,672 INFO c.e.p.c.MidiController [main] 
+Available MIDI devices:
+2023-02-21 23:03:03,673 INFO c.e.p.c.MidiController [main] [32m- Gervill[32m
+2023-02-21 23:03:03,673 INFO c.e.p.c.MidiController [main] [32m- Real Time Sequencer[32m
+2023-02-21 23:03:03,674 INFO c.e.p.c.MidiController [main] [32m- Microsoft MIDI Mapper[32m
+2023-02-21 23:03:03,674 INFO c.e.p.c.MidiController [main] [32m- Microsoft GS Wavetable Synth[32m
+2023-02-21 23:03:03,674 INFO c.e.p.c.MidiController [main] [32m- SHAKES-DESKTOP[32m
+2023-02-21 23:03:03,674 INFO c.e.p.c.MidiController [main] [32m- SHAKES-DESKTOP[32m
+2023-02-21 23:05:21,363 INFO c.e.p.c.HttpToMidi [main] Starting HttpToMidi using Java 17.0.5 with PID 23752 (C:\Users\jacob\Documents\codeprojects\Java\photoz-clone\target\classes started by jacob in C:\Users\jacob\Documents\codeprojects\Java\photoz-clone)
+2023-02-21 23:05:21,373 INFO c.e.p.c.HttpToMidi [main] No active profile set, falling back to 1 default profile: "default"
+2023-02-21 23:05:22,282 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-02-21 23:05:22,305 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 18 ms. Found 0 JDBC repository interfaces.
+2023-02-21 23:05:22,841 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2023-02-21 23:05:22,850 INFO o.a.c.h.Http11NioProtocol [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-02-21 23:05:22,852 INFO o.a.c.c.StandardService [main] Starting service [Tomcat]
+2023-02-21 23:05:22,852 INFO o.a.c.c.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-02-21 23:05:22,953 INFO o.a.c.c.C.[.[.[/] [main] Initializing Spring embedded WebApplicationContext
+2023-02-21 23:05:22,958 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1539 ms
+2023-02-21 23:05:24,046 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2023-02-21 23:05:24,194 INFO c.z.h.p.HikariPool [main] HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:efffe828-176d-4256-b27b-820601d942b9 user=SA
+2023-02-21 23:05:24,196 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-02-21 23:05:24,393 INFO o.s.b.a.e.w.EndpointLinksResolver [main] Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-02-21 23:05:24,536 INFO o.a.c.h.Http11NioProtocol [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-02-21 23:05:24,579 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-21 23:05:24,598 INFO c.e.p.c.HttpToMidi [main] Started HttpToMidi in 3.573 seconds (process running for 4.03)
+2023-02-21 23:05:24,611 INFO c.e.p.c.HttpToMidi [main] [32m
+
+There are 4 different commands that you can send to this web server. 
+There is MIDI Note On, MIDI Note Off, MIDI CC Message, and List MIDI Devices. 
+
+In order to sent a Note On you will need to provide these parameters to /midi/noteon:
+deviceName: Name of the device you are wanting to send the message to in a string format exactly like you see when running the list devices command.
+channel: Number from 0 - 15 indicating the channel number you want to connect to.
+note: Number from 0 - 128 corresponding to the different midi notes.
+velocity: Number from 0 - 128 indicating the velocity.
+Example: http://localhost:8080/midi/noteon?deviceName=Propresenter&channel=0&note=52&velocity=128
+
+In order to sent a Note Off you will need to provide these parameters to /midi/noteoff:
+deviceName: Name of the device you are wanting to send the message to in a string format exactly like you see when running the list devices command.
+channel: Number from 0 - 15 indicating the channel number you want to connect to.
+note: Number from 0 - 128 corresponding to the different midi notes.
+Example: http://localhost:8080/midi/noteoff?deviceName=Propresenter&channel=0&note=52
+
+In order to sent a CC Message you will need to provide these parameters to /midi/cc:
+deviceName: Name of the device you are wanting to send the message to in a string format exactly like you see when running the list devices command.
+channel: Number from 0 - 15 indicating the channel number you want to connect to.
+ccNumber: Number from 0 - 128 corresponding to the different midi notes.
+value: Number from 0 - 128 corresponding to the different midi notes.
+Example: http://localhost:8080/midi/cc?deviceName=Propresenter&channel=0&ccNumber=15&value=33
+
+In order to list out the available midi devices you will need to send a request to /midi/list
+Example: http://localhost:8080/midi/list
+[32m
+2023-02-21 23:05:24,658 INFO c.e.p.c.MidiController [main] 
+Available MIDI devices:
+2023-02-21 23:05:24,659 INFO c.e.p.c.MidiController [main] [32m- Gervill[32m
+2023-02-21 23:05:24,659 INFO c.e.p.c.MidiController [main] [32m- Real Time Sequencer[32m
+2023-02-21 23:05:24,659 INFO c.e.p.c.MidiController [main] [32m- Microsoft MIDI Mapper[32m
+2023-02-21 23:05:24,660 INFO c.e.p.c.MidiController [main] [32m- Microsoft GS Wavetable Synth[32m
+2023-02-21 23:05:24,660 INFO c.e.p.c.MidiController [main] [32m- SHAKES-DESKTOP[32m
+2023-02-21 23:05:24,660 INFO c.e.p.c.MidiController [main] [32m- SHAKES-DESKTOP[32m
+2023-02-26 15:15:43,511 INFO c.m.H.HttpToMidi [main] Starting HttpToMidi using Java 19.0.2 with PID 19896 (C:\Users\jacob\Documents\codeprojects\Java\Http2Midi\build\classes\java\main started by jacob in C:\Users\jacob\Documents\codeprojects\Java\Http2Midi)
+2023-02-26 15:15:43,520 INFO c.m.H.HttpToMidi [main] No active profile set, falling back to 1 default profile: "default"
+2023-02-26 15:15:44,800 INFO o.s.b.a.e.w.EndpointLinksResolver [main] Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-02-26 15:15:45,262 INFO o.s.b.w.e.n.NettyWebServer [main] Netty started on port 8080
+2023-02-26 15:15:45,278 INFO c.m.H.HttpToMidi [main] Started HttpToMidi in 2.056 seconds (process running for 2.519)
+2023-02-26 15:15:45,283 INFO c.m.H.HttpToMidi [main] [32m
+
+There are 4 different commands that you can send to this web server. 
+There is MIDI Note On, MIDI Note Off, MIDI CC Message, and List MIDI Devices. 
+
+In order to sent a Note On you will need to provide these parameters to /midi/noteon:
+deviceName: Name of the device you are wanting to send the message to in a string format exactly like you see when running the list devices command.
+channel: Number from 0 - 15 indicating the channel number you want to connect to.
+note: Number from 0 - 128 corresponding to the different midi notes.
+velocity: Number from 0 - 128 indicating the velocity.
+Example: http://localhost:8080/midi/noteon?deviceName=Propresenter&channel=0&note=52&velocity=128
+
+In order to sent a Note Off you will need to provide these parameters to /midi/noteoff:
+deviceName: Name of the device you are wanting to send the message to in a string format exactly like you see when running the list devices command.
+channel: Number from 0 - 15 indicating the channel number you want to connect to.
+note: Number from 0 - 128 corresponding to the different midi notes.
+Example: http://localhost:8080/midi/noteoff?deviceName=Propresenter&channel=0&note=52
+
+In order to sent a CC Message you will need to provide these parameters to /midi/cc:
+deviceName: Name of the device you are wanting to send the message to in a string format exactly like you see when running the list devices command.
+channel: Number from 0 - 15 indicating the channel number you want to connect to.
+ccNumber: Number from 0 - 128 corresponding to the different midi notes.
+value: Number from 0 - 128 corresponding to the different midi notes.
+Example: http://localhost:8080/midi/cc?deviceName=Propresenter&channel=0&ccNumber=15&value=33
+
+In order to list out the available midi devices you will need to send a request to /midi/list
+Example: http://localhost:8080/midi/list
+[32m
+2023-02-26 15:15:45,328 INFO c.m.H.MidiController [main] 
+Available MIDI devices:
+2023-02-26 15:15:45,329 INFO c.m.H.MidiController [main] [32m- Gervill[32m
+2023-02-26 15:15:45,329 INFO c.m.H.MidiController [main] [32m- Real Time Sequencer[32m
+2023-02-26 15:15:45,329 INFO c.m.H.MidiController [main] [32m- Microsoft MIDI Mapper[32m
+2023-02-26 15:15:45,329 INFO c.m.H.MidiController [main] [32m- Microsoft GS Wavetable Synth[32m
+2023-02-26 15:15:45,329 INFO c.m.H.MidiController [main] [32m- SHAKES-DESKTOP[32m
+2023-02-26 15:15:45,329 INFO c.m.H.MidiController [main] [32m- SHAKES-DESKTOP[32m
+2023-02-26 15:16:32,363 INFO c.m.H.HttpToMidi [main] Starting HttpToMidi using Java 19.0.2 with PID 14732 (C:\Users\jacob\Documents\codeprojects\Java\Http2Midi\build\classes\java\main started by jacob in C:\Users\jacob\Documents\codeprojects\Java\Http2Midi)
+2023-02-26 15:16:32,372 INFO c.m.H.HttpToMidi [main] No active profile set, falling back to 1 default profile: "default"
+2023-02-26 15:16:33,678 INFO o.s.b.a.e.w.EndpointLinksResolver [main] Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-02-26 15:16:34,108 INFO o.s.b.w.e.n.NettyWebServer [main] Netty started on port 8080
+2023-02-26 15:16:34,121 INFO c.m.H.HttpToMidi [main] Started HttpToMidi in 2.031 seconds (process running for 2.437)
+2023-02-26 15:16:34,125 INFO c.m.H.HttpToMidi [main] [32m
+
+There are 4 different commands that you can send to this web server. 
+There is MIDI Note On, MIDI Note Off, MIDI CC Message, and List MIDI Devices. 
+
+In order to sent a Note On you will need to provide these parameters to /midi/noteon:
+deviceName: Name of the device you are wanting to send the message to in a string format exactly like you see when running the list devices command.
+channel: Number from 0 - 15 indicating the channel number you want to connect to.
+note: Number from 0 - 128 corresponding to the different midi notes.
+velocity: Number from 0 - 128 indicating the velocity.
+Example: http://localhost:8080/midi/noteon?deviceName=Propresenter&channel=0&note=52&velocity=128
+
+In order to sent a Note Off you will need to provide these parameters to /midi/noteoff:
+deviceName: Name of the device you are wanting to send the message to in a string format exactly like you see when running the list devices command.
+channel: Number from 0 - 15 indicating the channel number you want to connect to.
+note: Number from 0 - 128 corresponding to the different midi notes.
+Example: http://localhost:8080/midi/noteoff?deviceName=Propresenter&channel=0&note=52
+
+In order to sent a CC Message you will need to provide these parameters to /midi/cc:
+deviceName: Name of the device you are wanting to send the message to in a string format exactly like you see when running the list devices command.
+channel: Number from 0 - 15 indicating the channel number you want to connect to.
+ccNumber: Number from 0 - 128 corresponding to the different midi notes.
+value: Number from 0 - 128 corresponding to the different midi notes.
+Example: http://localhost:8080/midi/cc?deviceName=Propresenter&channel=0&ccNumber=15&value=33
+
+In order to list out the available midi devices you will need to send a request to /midi/list
+Example: http://localhost:8080/midi/list
+[32m
+2023-02-26 15:16:34,153 INFO c.m.H.MidiController [main] 
+Available MIDI devices:
+2023-02-26 15:16:34,153 INFO c.m.H.MidiController [main] [32m- Gervill[32m
+2023-02-26 15:16:34,153 INFO c.m.H.MidiController [main] [32m- Real Time Sequencer[32m
+2023-02-26 15:16:34,153 INFO c.m.H.MidiController [main] [32m- Microsoft MIDI Mapper[32m
+2023-02-26 15:16:34,153 INFO c.m.H.MidiController [main] [32m- Microsoft GS Wavetable Synth[32m
+2023-02-26 15:16:34,153 INFO c.m.H.MidiController [main] [32m- SHAKES-DESKTOP[32m
+2023-02-26 15:16:34,153 INFO c.m.H.MidiController [main] [32m- SHAKES-DESKTOP[32m
+2023-02-26 15:31:56,406 INFO c.m.H.HttpToMidi [main] Starting HttpToMidi using Java 19.0.2 with PID 21340 (C:\Users\jacob\Documents\codeprojects\Java\Http2Midi\build\classes\java\main started by jacob in C:\Users\jacob\Documents\codeprojects\Java\Http2Midi)
+2023-02-26 15:31:56,411 INFO c.m.H.HttpToMidi [main] No active profile set, falling back to 1 default profile: "default"
+2023-02-26 15:31:57,706 INFO o.s.b.a.e.w.EndpointLinksResolver [main] Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-02-26 15:31:58,114 INFO o.s.b.w.e.n.NettyWebServer [main] Netty started on port 8080
+2023-02-26 15:31:58,126 INFO c.m.H.HttpToMidi [main] Started HttpToMidi in 1.997 seconds (process running for 2.404)
+2023-02-26 15:31:58,129 INFO c.m.H.HttpToMidi [main] [32m
+
+There are 4 different commands that you can send to this web server. 
+There is MIDI Note On, MIDI Note Off, MIDI CC Message, and List MIDI Devices. 
+
+In order to sent a Note On you will need to provide these parameters to /midi/noteon:
+deviceName: Name of the device you are wanting to send the message to in a string format exactly like you see when running the list devices command.
+channel: Number from 0 - 15 indicating the channel number you want to connect to.
+note: Number from 0 - 128 corresponding to the different midi notes.
+velocity: Number from 0 - 128 indicating the velocity.
+Example: http://localhost:8080/midi/noteon?deviceName=Propresenter&channel=0&note=52&velocity=128
+
+In order to sent a Note Off you will need to provide these parameters to /midi/noteoff:
+deviceName: Name of the device you are wanting to send the message to in a string format exactly like you see when running the list devices command.
+channel: Number from 0 - 15 indicating the channel number you want to connect to.
+note: Number from 0 - 128 corresponding to the different midi notes.
+Example: http://localhost:8080/midi/noteoff?deviceName=Propresenter&channel=0&note=52
+
+In order to sent a CC Message you will need to provide these parameters to /midi/cc:
+deviceName: Name of the device you are wanting to send the message to in a string format exactly like you see when running the list devices command.
+channel: Number from 0 - 15 indicating the channel number you want to connect to.
+ccNumber: Number from 0 - 128 corresponding to the different midi notes.
+value: Number from 0 - 128 corresponding to the different midi notes.
+Example: http://localhost:8080/midi/cc?deviceName=Propresenter&channel=0&ccNumber=15&value=33
+
+In order to list out the available midi devices you will need to send a request to /midi/list
+Example: http://localhost:8080/midi/list
+[32m
+2023-02-26 15:31:58,156 INFO c.m.H.MidiController [main] 
+Available MIDI devices:
+2023-02-26 15:31:58,157 INFO c.m.H.MidiController [main] [32m- Gervill[32m
+2023-02-26 15:31:58,157 INFO c.m.H.MidiController [main] [32m- Real Time Sequencer[32m
+2023-02-26 15:31:58,157 INFO c.m.H.MidiController [main] [32m- Microsoft MIDI Mapper[32m
+2023-02-26 15:31:58,157 INFO c.m.H.MidiController [main] [32m- Microsoft GS Wavetable Synth[32m
+2023-02-26 15:31:58,157 INFO c.m.H.MidiController [main] [32m- SHAKES-DESKTOP[32m
+2023-02-26 15:31:58,157 INFO c.m.H.MidiController [main] [32m- SHAKES-DESKTOP[32m
+2023-02-26 15:32:06,978 INFO c.m.H.MidiController [reactor-http-nio-3] [32m
+
+There are 4 different commands that you can send to this web server. 
+There is MIDI Note On, MIDI Note Off, MIDI CC Message, and List MIDI Devices. 
+
+In order to sent a Note On you will need to provide these parameters to /midi/noteon:
+deviceName: Name of the device you are wanting to send the message to in a string format exactly like you see when running the list devices command.
+channel: Number from 0 - 15 indicating the channel number you want to connect to.
+note: Number from 0 - 128 corresponding to the different midi notes.
+velocity: Number from 0 - 128 indicating the velocity.
+Example: http://localhost:8080/midi/noteon?deviceName=Propresenter&channel=0&note=52&velocity=128
+
+In order to sent a Note Off you will need to provide these parameters to /midi/noteoff:
+deviceName: Name of the device you are wanting to send the message to in a string format exactly like you see when running the list devices command.
+channel: Number from 0 - 15 indicating the channel number you want to connect to.
+note: Number from 0 - 128 corresponding to the different midi notes.
+Example: http://localhost:8080/midi/noteoff?deviceName=Propresenter&channel=0&note=52
+
+In order to sent a CC Message you will need to provide these parameters to /midi/cc:
+deviceName: Name of the device you are wanting to send the message to in a string format exactly like you see when running the list devices command.
+channel: Number from 0 - 15 indicating the channel number you want to connect to.
+ccNumber: Number from 0 - 128 corresponding to the different midi notes.
+value: Number from 0 - 128 corresponding to the different midi notes.
+Example: http://localhost:8080/midi/cc?deviceName=Propresenter&channel=0&ccNumber=15&value=33
+
+In order to list out the available midi devices you will need to send a request to /midi/list
+Example: http://localhost:8080/midi/list
+[32m
+2023-03-01 17:34:35,715 INFO c.m.H.HttpToMidi [main] Starting HttpToMidi using Java 19.0.2 with PID 18344 (C:\Users\jacob\Documents\codeprojects\Java\Http2Midi\build\classes\java\main started by jacob in C:\Users\jacob\Documents\codeprojects\Java\Http2Midi)
+2023-03-01 17:34:35,719 INFO c.m.H.HttpToMidi [main] No active profile set, falling back to 1 default profile: "default"
+2023-03-01 17:34:37,087 INFO o.s.b.a.e.w.EndpointLinksResolver [main] Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-03-01 17:34:37,540 INFO o.s.b.w.e.n.NettyWebServer [main] Netty started on port 8080
+2023-03-01 17:34:37,552 INFO c.m.H.HttpToMidi [main] Started HttpToMidi in 2.145 seconds (process running for 2.65)
+2023-03-01 17:34:37,556 INFO c.m.H.HttpToMidi [main] ***************************************************************************************************************************
+
+There are 4 different commands that you can send to this web server. 
+There is MIDI Note On, MIDI Note Off, MIDI CC Message, and List MIDI Devices. 
+
+In order to sent a Note On you will need to provide these parameters to /midi/noteon:
+deviceName: Name of the device you are wanting to send the message to in a string format exactly like you see when running the list devices command.
+channel: Number from 0 - 15 indicating the channel number you want to connect to.
+note: Number from 0 - 128 corresponding to the different midi notes.
+velocity: Number from 0 - 128 indicating the velocity.
+Example: http://localhost:8080/midi/noteon?deviceName=Propresenter&channel=0&note=52&velocity=128
+
+In order to sent a Note Off you will need to provide these parameters to /midi/noteoff:
+deviceName: Name of the device you are wanting to send the message to in a string format exactly like you see when running the list devices command.
+channel: Number from 0 - 15 indicating the channel number you want to connect to.
+note: Number from 0 - 128 corresponding to the different midi notes.
+Example: http://localhost:8080/midi/noteoff?deviceName=Propresenter&channel=0&note=52
+
+In order to sent a CC Message you will need to provide these parameters to /midi/cc:
+deviceName: Name of the device you are wanting to send the message to in a string format exactly like you see when running the list devices command.
+channel: Number from 0 - 15 indicating the channel number you want to connect to.
+ccNumber: Number from 0 - 128 corresponding to the different midi notes.
+value: Number from 0 - 128 corresponding to the different midi notes.
+Example: http://localhost:8080/midi/cc?deviceName=Propresenter&channel=0&ccNumber=15&value=33
+
+In order to list out the available midi devices you will need to send a request to /midi/list
+Example: http://localhost:8080/midi/list
+
+In order to get these instructions again you will need to send a request to /midi/info
+Example: http://localhost:8080/midi/info
+
+***********************************************************************************************************************
+
+2023-03-01 17:34:37,593 INFO c.m.H.MidiController [main] 
+Available MIDI devices:
+2023-03-01 17:34:37,594 INFO c.m.H.MidiController [main] [32m- Gervill[32m
+2023-03-01 17:34:37,594 INFO c.m.H.MidiController [main] [32m- Real Time Sequencer[32m
+2023-03-01 17:34:37,594 INFO c.m.H.MidiController [main] [32m- Microsoft MIDI Mapper[32m
+2023-03-01 17:34:37,594 INFO c.m.H.MidiController [main] [32m- Microsoft GS Wavetable Synth[32m
+2023-03-01 17:34:37,594 INFO c.m.H.MidiController [main] [32m- SHAKES-DESKTOP[32m
+2023-03-01 17:34:37,594 INFO c.m.H.MidiController [main] [32m- SHAKES-DESKTOP[32m
+2023-03-01 17:35:15,239 WARN c.m.H.MidiController [reactor-http-nio-3] Shutting down webserver.
+2023-03-01 17:35:18,250 WARN o.s.c.a.CommonAnnotationBeanPostProcessor [SpringApplicationShutdownHook] Destroy method on bean with name 'midiController' threw an exception: java.lang.NullPointerException: Cannot invoke "javax.sound.midi.MidiDevice.close()" because "this.networkDevice" is null
